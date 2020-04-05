@@ -1,6 +1,18 @@
+My heroku link: http://pure-thicket-30730.herokuapp.com/donations/
+
+Comments: 
+I am really struggling to get this to work.
+
+I first attempted to add a donation via peewee but I kept getting errors such as database is locked.
+
+I then attempted to append the new entries as a dictionary to the already selected data but the data types are different and that is not working.
+
+
 # Flask Mailroom Application
 
 Running at [http://afternoon-reef-51666.herokuapp.com/donations/](http://afternoon-reef-51666.herokuapp.com/donations/).
+
+
 
 ## Your Task
 
