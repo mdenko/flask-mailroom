@@ -19,12 +19,16 @@ def all():
 @app.route('/create', methods=['GET', 'POST'])
 def create():
     if request.method == 'POST':
-        db = connect(os.environ.get('DATABASE_URL', 'sqlite:///my_database.db'))
-        db.connect()
-        new_donation = {'name': request.form['name'], 'value':request.form['donation']}
-        donations = dict(Donation.select())
-        donations.append(new_donation)
-        return render_template('donations.jinja2', donations=donations)
+        donor_name = request.form['name']
+        donation_amount = request.form['donation']
+
+        # Find the donor
+        donor = Donor.select().where(Donor.name == donor_name).get()
+
+        #donation
+        donation = Donation(value = donation_amount, donor = donor)
+        donation.save()
+        return redirect(url_for('all'))
     else:
         return render_template('create.jinja2')
 
